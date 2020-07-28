@@ -3,8 +3,7 @@
     <label for="basePrice">Base Price</label>
     <input type="text" id="basePrice" v-model="basePrice" />
     <hr />
-    <label for="finalPrice">Final Price</label>
-    <input type="text" id="finalPrice" v-model="finalPrice" />
+    <h4>Final Price: {{finalPrice}}</h4>
   </div>
 </template>
 
@@ -12,18 +11,18 @@
 export default {
   data: function () {
     return {
-      basePrice: 10000,
+      basePrice: 1,
       taxRate: 7.5,
     };
   },
   computed: {
-    finalPrice: {
-      get: function () {
-        return this.basePrice + (this.basePrice * this.taxRate) / 100;
-      },
-      set: function (newFinalPrice) {
-        this.basePrice = (newFinalPrice * 100) / (100 + this.taxRate);
-      },
+    finalPrice: function () {
+      return +this.basePrice + (this.basePrice * this.taxRate) / 100;
+    },
+  },
+  watch: {
+    basePrice: function (newValue, oldValue) {
+      console.log(`Base price changed from ${oldValue} to ${newValue}`);
     },
   },
 };
