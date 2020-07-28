@@ -3,7 +3,7 @@
     <h4>Hi there!</h4>
     <hr />
     <my-sample :name="fullName">
-      <p>This is a slot content sent from example</p>
+      <!-- <p>This is a slot content sent from example</p> -->
     </my-sample>
   </div>
 </template>
