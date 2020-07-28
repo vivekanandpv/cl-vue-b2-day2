@@ -1,14 +1,14 @@
 <template>
-  <p>{{title}}</p>
+  <div>
+    <p>Name: {{name}}</p>
+    <p>City: {{city}}</p>
+    <p>Country: {{country}}</p>
+  </div>
 </template>
 
 <script>
 export default {
-  data: function () {
-    return {
-      title: "I am sample component",
-    };
-  },
+  props: ["name", "city", "country"],
 };
 </script>
 
