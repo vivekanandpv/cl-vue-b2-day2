@@ -2,7 +2,7 @@
   <div>
     <h4>Hi there!</h4>
     <hr />
-    <my-sample :name="'Ajay'" :city="'Mumbai'" :country="'India'"></my-sample>
+    <my-sample name="Ajay" city="Mumbai" country="India"></my-sample>
   </div>
 </template>
 
