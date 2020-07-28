@@ -1,11 +1,10 @@
 <template>
   <div>
-    <h2>Calculation of Simple Interest</h2>
-    <p>Principal: {{principal}}</p>
-    <p>Rate of interest: {{roi}} %</p>
-    <p>Term: {{term}} years</p>
+    <label for="basePrice">Base Price</label>
+    <input type="text" id="basePrice" v-model="basePrice" />
     <hr />
-    <p>Simple Interest: {{interest}}</p>
+    <label for="finalPrice">Final Price</label>
+    <input type="text" id="finalPrice" v-model="finalPrice" />
   </div>
 </template>
 
@@ -13,14 +12,18 @@
 export default {
   data: function () {
     return {
-      principal: 10000,
-      roi: 7.5,
-      term: 5,
+      basePrice: 10000,
+      taxRate: 7.5,
     };
   },
   computed: {
-    interest: function () {
-      return (this.principal * this.roi * this.term) / 100;
+    finalPrice: {
+      get: function () {
+        return this.basePrice + (this.basePrice * this.taxRate) / 100;
+      },
+      set: function (newFinalPrice) {
+        this.basePrice = (newFinalPrice * 100) / (100 + this.taxRate);
+      },
     },
   },
 };
