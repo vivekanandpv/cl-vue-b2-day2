@@ -1,71 +1,54 @@
 <template>
   <div>
-    <h2>{{name}}</h2>
-    <p>{{city}}</p>
-    <hr />
-    <p :class="style">This is a sample text with dynamic styling</p>
-    <button @click="changeStyle">Change Style</button>
+    <h3>{{counter}}</h3>
+    <button @click="clickHandler">Increment</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "sample",
-  data() {
+  data: function () {
     return {
-      name: "Vinayak",
-      city: "Hyderabad",
-      style: null,
-      index: 0,
-      styleArray: [
-        {
-          active: true,
-          paid: false,
-        },
-        {
-          active: false,
-          paid: true,
-        },
-        {
-          active: true,
-          paid: true,
-        },
-      ],
+      counter: 0,
     };
   },
   methods: {
-    changeStyle() {
-      ++this.index;
-      if (this.index === 3) {
-        this.index = 0;
-      }
-
-      this.style = this.styleArray[this.index];
+    clickHandler: function () {
+      ++this.counter;
     },
+  },
+  beforeCreate: function () {
+    //  reactivity is not yet in place
+    console.log("Before Create", this.counter);
+  },
+  created: function () {
+    //  data, such as counter is reactive now
+    console.log("Created", this.counter);
+  },
+  beforeMount: function () {
+    //  template is compiled and v-dom is ready
+    //  no data-binding, {{counter}} is plain string now
+    //  eq: ngOnInit
+    console.log("Before Mount");
+  },
+  mounted: function () {
+    //  data binding completed
+    //  native dom is hooked
+    //  eq: ngAfterViewInit
+    //  use for external data-communication
+    console.log("Mounted");
+  },
+  beforeUpdate: function () {
+    //  after update in the component
+    //  before DOM node is re-rendered
+    console.log("Before Update");
+  },
+  updated: function () {
+    //  after DOM node is re-rendered
+    console.log("Updated");
   },
 };
 </script>
 
 <style scoped>
-h2 {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 30px;
-  color: blue;
-}
-
-p {
-  font-size: 14px;
-  color: brown;
-}
-
-.active {
-  color: green;
-  font-size: 24px;
-  font-family: "Courier New", Courier, monospace;
-}
-
-.paid {
-  font-style: italic;
-  text-decoration: underline;
-}
 </style>
