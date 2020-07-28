@@ -2,10 +2,9 @@
   <div>
     <h4>Hi there!</h4>
     <hr />
-    <div v-for="(p, i) in persons" :key="i">
-      <my-sample :name="p.fullName" :city="p.city" :country="p.country"></my-sample>
-      <hr />
-    </div>
+    <my-sample :name="fullName">
+      <p>This is a slot content sent from example</p>
+    </my-sample>
   </div>
 </template>
 
@@ -15,23 +14,7 @@ import Sample from "./sample";
 export default {
   data: function () {
     return {
-      persons: [
-        {
-          fullName: "Ajay Kumar",
-          city: "Bengaluru",
-          country: "India",
-        },
-        {
-          fullName: "John Miller",
-          city: "London",
-          country: "UK",
-        },
-        {
-          fullName: "Roger Godwin",
-          city: "Toronto",
-          country: "Canada",
-        },
-      ],
+      fullName: "Ajay Kishore",
     };
   },
   components: {
