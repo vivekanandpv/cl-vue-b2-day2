@@ -3,7 +3,21 @@
     <h4>Hi there!</h4>
     <hr />
     <my-sample :name="fullName">
-      <!-- <p>This is a slot content sent from example</p> -->
+      <!-- v-slot directive can only be applied to template -->
+      <template v-slot:s2>
+        <h4>Slot: s2</h4>
+      </template>
+
+      <template v-slot:s1>
+        <h4>Slot: s1</h4>
+      </template>
+
+      <!-- with default slot explicitly defined, will this show? -->
+      <!-- <h4>Default slot</h4> -->
+
+      <template v-slot:default>
+        <h4>Slot: Default, explicit</h4>
+      </template>
     </my-sample>
   </div>
 </template>

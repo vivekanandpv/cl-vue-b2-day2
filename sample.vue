@@ -1,7 +1,12 @@
 <template>
   <div>
     <p>Name: {{name}}</p>
-    <slot>If you do not pass slot content, default would appear!</slot>
+    <slot name="s1"></slot>
+    <p>------------------</p>
+    <slot name="s2"></slot>
+    <p>------------------</p>
+    <slot></slot>
+    <hr />
   </div>
 </template>
 
