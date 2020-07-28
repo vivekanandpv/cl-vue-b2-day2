@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-for="(value, name, index) in person" :key="index">
-      <p>{{index}}. {{name}} -> {{value}}</p>
-    </div>
+    <ul v-for="n in 10" :key="n">
+      <li>Current value: {{n}}</li>
+    </ul>
   </div>
 </template>
 
