@@ -19,7 +19,7 @@ export default {
   computed: {
     finalPrice: {
       get: function () {
-        return this.basePrice + (this.basePrice * this.taxRate) / 100;
+        return +this.basePrice + (this.basePrice * this.taxRate) / 100;
       },
       set: function (newFinalPrice) {
         this.basePrice = (newFinalPrice * 100) / (100 + this.taxRate);
