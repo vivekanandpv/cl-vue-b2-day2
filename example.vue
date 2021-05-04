@@ -1,7 +1,7 @@
 <template>
   <div>
-    <ul v-for="n in 10" :key="n">
-      <li>Current value: {{n}}</li>
+    <ul>
+      <li v-for="n in 10" :key="n">Current value: {{ n }}</li>
     </ul>
   </div>
 </template>
