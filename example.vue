@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>{{counter}}</h3>
+    <h3>{{ counter }}</h3>
     <button @click="clickHandler">Increment</button>
   </div>
 </template>
@@ -14,6 +14,7 @@ export default {
   },
   methods: {
     clickHandler: function () {
+      console.log("increment");
       ++this.counter;
     },
   },
@@ -39,12 +40,12 @@ export default {
     console.log("Mounted");
   },
   beforeUpdate: function () {
-    //  after update in the component
-    //  before DOM node is re-rendered
+    //  Vue runtime has recognized the change (state, props) and
+    //  ready to call render function (to produce new virtual-node V-Node)
     console.log("Before Update");
   },
   updated: function () {
-    //  after DOM node is re-rendered
+    //  render function called, new v-node is produced, and updated in V-DOM
     console.log("Updated");
   },
 };
